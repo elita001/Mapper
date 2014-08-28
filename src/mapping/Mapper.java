@@ -105,10 +105,6 @@ public class Mapper {
 	public static void checkFields(Object oldObject, Object instanceOfNewClass)
 			throws Exception {
 		for (Field f : oldObject.getClass().getDeclaredFields()) {
-			if (f.getType().equals(oldObject.getClass().getName())) {
-				throw new Exception(
-						"Type of field matches with class type. Infinite recursion.");
-			}
 			if (!f.isAnnotationPresent(ToField.class)) {
 				file_logger.info("Field " + f.getName()
 						+ " without annotation. Continue");
